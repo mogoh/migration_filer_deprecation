@@ -1,0 +1,38 @@
+= Migrating Data from the Depricated filer-plugins to the new djangocms-*-plugins.
+
+== It only works for
+
+* cmsplugin_filer_file
+* cmsplugin_filer_folder
+* cmsplugin_filer_link
+* cmsplugin_filer_image
+
+== Usage
+
+* Install djangocms-*-plugins.
+* Install this script.
+* Adjust this script as needed.
+* Adjust your settings and templates for the new plugins as needed.
+* Run this script by calling python3 manage.py migrate migration-app.
+* Remove old plugins, configs and this script.
+
+== Limitations
+
+* This script does not migrate data for cmsplugin_filer_teaser.
+* This script does not migrate data for cmsplugin_filer_video.
+* Style and Templates are now merged.
+  But this Script does not handel that.
+  You need to adjust it depending on your usage.
+* cmsplugin_filer_file always showed the size of a file.
+  Now this is an option.
+  Here we set it to the new default (to not show the size).
+* It was possible to set a link to a file with the old cmsplugin_filer_link plugin.
+  Thus migrating this requres djangocms-link and djangocms-file.
+
+== This is based on this gist
+
+https://gist.github.com/wfehr/86ac31e8e263b872b746cc721662251e
+
+== Inspiration
+
+https://docs.djangoproject.com/en/2.0/howto/writing-migrations/#migrating-data-between-third-party-apps
